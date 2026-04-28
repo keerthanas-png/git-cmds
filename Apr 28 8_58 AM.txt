@@ -1,0 +1,323 @@
+Basic checks 
+
+git --version          # check git version
+
+
+NAVIGATION (GIT BASH)
+pwd                    # show current path
+ls                     # list files/folders
+ls -la                 # list all files (including hidden like .git)
+cd Desktop             # go to Desktop
+cd foldername          # go inside folder
+cd ..                  # go back
+
+
+FILE & FOLDER COMMANDS
+
+create folder
+mkdir foldername
+
+create files
+touch file.txt
+
+DELETE FILES
+rm file.txt
+
+
+DELETE FOLDER
+rm -r foldername
+
+RENAME FILE / FOLDER
+mv oldname newname
+
+COPY FILE 
+cp file1 file2 
+
+
+OPEN CURRENT FOLDER 
+explorer .
+-----------------------------------------------------------------------------------------------------------------
+#WORS STARTS HERE
+
+
+#GO TO Documents
+# go to documents
+cd documents
+
+
+#CREATE  PROJECT FOLDER
+mkdir git-one
+
+#get inside this git-folder
+cd git-one
+
+# CREATE FILES INSIDE GIT-ONE 
+touch one.txt
+touch two.txt
+
+#CREATE A ANOTHER FOLDER INSIDE GIT-ONE
+mkdir myFolder
+
+
+#MOVE INTO THE  MYFOLDER
+cd myFolder
+
+
+#CREATE A FILES INSIDE MY FOLDER
+touch three.txt
+
+
+
+#GET BACK TO THE GIT-ONE 
+cd ..
+
+#TO SEE THE FILES IN THE WORKING DIRECTORY LOCATION
+
+explorer .
+
+---------------------------------------------------
+
+#WE WANT GIT TO MONITOR THE CHANGES THAT WE HAVE DONE
+#INITILAIZE  GIT  TO KEEP A TRACK OF CHANGES 
+
+git init
+
+
+# CONFIRM GIT INTILIALIIZED
+
+# TO LIST DOWN FILES 
+ls   # all files
+
+# TO LIST ALL THE FILES INCLUDING THE HIDDEN 
+
+ls -la   #hidden files
+
+
+#.GIT == > MEANS  LOCAL REPOSITORY 
+WHICH TRACkS CHANGES,VERSIONS,AUTHORS, HISTORY
+
+#create the remote repository 
+
+
+#create the files here
+#GIVE CONTENT
+
+
+#CLONE A REMOTE REPOSITORY
+#CREATE A REMOTE REPOSITORY 
+# I.E GIT HUB
+--> go to the google  
+--> search github .com
+--> if ur new you need to create a new account on git hub
+--> asking for the verification do it 
+
+#CREATE  REPOSITORY IN THE GITHUB
+-->git-journey
+one.txt   with content one
+two.txt with content two
+
+
+#local repository
+git-one 
+>>.git 
+>> one.txt
+>> two.txt
+>>myfolder
+    -->> three.txt
+
+#remote repository
+git-journey
+>> one.txt with content one
+>> two.txt with content two
+-------------------------------------------------
+#CLONE CODE TO LOCAL 
+
+>> desktop 
+cd ../   # you need to be in desktop
+
+
+#clone the remote repository
+--> come to git hub
+-->click on code button (green)
+-->select the https link
+--> copy link
+
+
+git clone https://github.com/nikitha-DM/git-journey.git
+
+
+>>  you will get cloning succcess
+CHECK THE CLONE SUCCESS
+
+#TO SEE ALL THE FILES 
+ls 
+
+
+#get into the cloned repository 
+#i.e git-journey
+
+cd git-journey  #see remote repository
+
+#see the files
+ls
+
+#see the hidden files
+ls -la
+
+#now we have git repository in two ways 
+# local and remote 
+
+# git- journey is a remote repository we just cloned from the 
+#remote repository
+
+# i will modify the content
+explorer .
+
+-------------------------------------------------------------------
+#to track the git commands
+git status
+  
+>> git alredy detected the changes that  we have made 
+#now git is modifying the the changes that we are doing
+# continously modifying the changes
+
+2. staging area
+we have modified the changes
+but we haven't told git to keep those changes
+
+ in the git terminology process of moving from 
+working directory to staging is called 
+adding
+
+means your are telling git you want to keep those chnages
+
+# in git-journey 
+#we want to create a another folder
+
+mkdir myfolder
+
+cd myfolder
+
+#create a file inside
+touch three.txt
+
+explorer .
+
+>> type content
+
+#we have modified many
+#now its time to move to the staging area
+
+#move one step up (main)
+cd ..
+
+#which files have actually modified
+git status
+
+#to move all the files to staging area
+git 
+git add --all
+git add -A
+
+# check the status again
+git status
+
+
+# we havn't commit it yet
+#but i want to go back from the staging area
+# return them to working directory
+
+git reset
+
+git status
+--------------------------------------------------
+# add the status
+git add -A
+git status
+
+git reset
+git status
+-------------------------------------------------
+# use this
+git add .
+git status
+
+>> everything appers to be staged
+>>but thts not the case
+
+git reset
+
+>> go inside myfolder
+cd myfolder
+
+git add .
+git status
+
+>> now git has only staged the three.txt
+>>other files are  unstaged
+>> this step is really imp
+--------------------------------------------------------------------
+>> these will help us stage every single files
+git add --all
+git add -A accross the project
+
+but git add . stage the changes within the current 
+directory we are in 
+. ==> dot indicates the current directory and everything inside it
+
+
+git reset
+
+#go back to the root folder
+cd ..
+
+>> i will all the files
+git add --all
+
+
+>> i will modifiy the files 
+
+explorer .
+
+
+>> check status
+git status
+---------------------------------------------
+>> this stage only new or modified files
+but not deleted ones
+
+git add *
+git status
+
+>> go to the previous stage
+git reset
+git status
+
+---------------------------------------------
+
+>> you want to stage  one single files
+git add one.txt
+git status
+git reset
+git status
+
+>> you want to stage file inside the folder
+git add myfolder/three.txt
+git status
+git reset
+git status
+
+>> if we want to stage all txt files
+excluding deleted ones, or files  include the subfolders
+
+----------------------------------------
+git  add *.txt
+git status
+
+>>best way to stage everything is
+
+git add .
+git status
+
+#intermediate stage
+#review adjust remove changes
