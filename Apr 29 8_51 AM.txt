@@ -1,0 +1,108 @@
+3. let's see  commit
+>> confirming and saving our changes permanently
+
+git status
+
+>> to commit
+git commit -m "I have made some changes to files"
+
+
+you will get error
+>> git wants to know who is making these changes 
+>> requried email id
+
+git config --global user.email "type ur email"
+git config --global user.name "type ur username"
+
+--local
+
+git commit -m "I have made some changes to files"
+git status
+
+
+>> from now if you modify again 
+>> you need to stage and commit again
+--------------------------------------------------------------------------
+>> we can roll back the commit
+git reset HEAD~
+git status
+
+>> all back to the working directory
+>> need to be staged again
+
+#stage again
+git add .
+
+##commit again
+git commit -m "I have made some changes to files"
+
+>> let's manually delete the one.txt
+add four.txt
+
+explorer .
+git status
+
+>> deletion will also be staged
+git add .
+
+>> suppose you want to delete and stage  together
+git rm four.txt
+
+git status
+
+
+>> rollback the deleted files
+>> it  only brings back the changes not the deleted one
+git reset
+git status
+
+>> you want to restore everything
+git reset --hard
+
+>> let's understand the more on git remove
+ we manually change the content on four.txt
+--------------------------------------------------------------------------------------
+git status
+
+git rm four.txt
+error
+>> means git is not allowing for the deletion
+>> detected  uncommitted changes
+>> before removing that either you need to commit
+>> fourcefully remove it
+
+git rm -f four.txt
+
+>> everything back again
+
+git reset --hard
+
+>> manually chnage content the four.txt
+
+git rm --cached four.txt
+>> this  remove the file from the staging area
+git status
+
+
+--force  completely deletes the file
+--cached  only remove it from staging
+
+>> remove folder recursive
+>> all sub folders will be removed
+
+git reset --hard
+
+
+git rm -r myfolder
+
+g
+git status
+
+git reset --hard
+
+
+>> how to view the commits
+git log
+git log --oneline
+
+git rm -r <folder>
